@@ -21,7 +21,7 @@ class PaymentNotification extends Notification
 
     public function via($notifiable)
     {
-        return ['mail']; // ou 'database', 'sms', etc.
+        return ['mail']; 
     }
 
     public function toMail($notifiable)

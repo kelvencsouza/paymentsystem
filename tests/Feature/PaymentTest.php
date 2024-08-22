@@ -18,10 +18,8 @@ class PaymentTest extends TestCase
     {
         Notification::fake();
 
-        // Crie um produto para associar ao pagamento
         $product = Product::factory()->create();
 
-        // Crie um pagamento
         $payment = Payment::create([
             'status' => 'paid',
             'method' => 'credit_card',
@@ -32,7 +30,6 @@ class PaymentTest extends TestCase
             'total_amount' => 100.00,
         ]);
 
-        // Verifique se a notificação foi enviada
         Notification::assertSentTo(
             [$payment], PaymentNotification::class
         );
